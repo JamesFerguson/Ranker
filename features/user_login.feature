@@ -3,7 +3,11 @@ Feature: Login existing user
   a user
   wants to be able to login to an existing account
   
-  @wip
+  Background:
+    Given the following users:
+    | email               |
+    | my_email@domain.com |
+  
   Scenario: Login existing user
     Given I am on the login page
     When I fill in "Email" with "my_email@domain.com"

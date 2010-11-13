@@ -8,4 +8,4 @@ Feature: Create users
     When I fill in "Email" with "my_email@domain.com"
     And I press "Register"
     Then I should see "You are logged in as my_email@domain.com."
-     And I should see a flash message "Thanks for registering. You are logged in."
+     And I should see a flash notice "Thanks for registering. You are logged in."
