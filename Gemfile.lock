@@ -38,6 +38,8 @@ GEM
       gherkin (~> 2.0.2)
       json_pure (~> 1.4.3)
       term-ansicolor (~> 1.0.4)
+    cucumber-rails (0.3.2)
+      cucumber (>= 0.8.0)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -100,6 +102,7 @@ PLATFORMS
 
 DEPENDENCIES
   cucumber
+  cucumber-rails
   rails (= 3.0.0)
   rspec
   rspec-rails
