@@ -7,7 +7,13 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
+<div class="login_status">
+  <% if current_user %>
+    You are logged in as <%= current_user.email %>.
+  <% else %>
+    Login or <%= link_to "Register", new_user_path %>
+  <% end %>
+</div>
 <%= yield %>
 
 </body>
