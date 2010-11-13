@@ -7,6 +7,9 @@ gem 'rails', '~> 3.0.0'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
+# Use unicorn as the web server
+gem 'unicorn'
+
 # Deploy with Capistrano
 # gem 'capistrano'
 
@@ -24,7 +27,4 @@ group :development, :test, :cucumber do
   
   gem 'factory_girl_rails'
   gem 'forgery'
-  
-  # Use unicorn as the web server
-  gem 'thin'
 end
