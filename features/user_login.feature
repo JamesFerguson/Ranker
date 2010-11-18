@@ -9,7 +9,7 @@ Feature: Login existing user
     | my_email@domain.com |
   
   Scenario: Login existing user
-    Given I am on the login page
+    Given I am on the login user page
     When I fill in "Email" with "my_email@domain.com"
     And I press "Login"
     Then I should see "Welcome my_email@domain.com."

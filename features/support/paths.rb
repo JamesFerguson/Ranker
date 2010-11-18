@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the new user page/
       new_user_path
+    when /the login user page/
+      login_user_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
