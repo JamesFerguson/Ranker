@@ -8,12 +8,20 @@
 </head>
 <body>
 <div class="login_status">
-  <% if current_user %>
+  <% if user_signed_in? %>
     You are logged in as <%= current_user.email %>.
   <% else %>
-    Login or <%= link_to "Register", new_user_path %>
+    <%= link_to "Login", new_user_session_path %> or <%= link_to "Register", new_user_registration_path %>
   <% end %>
 </div>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:error] %>
+  <p class="error"><%= flash[:error] %></p>
+<% end %>
+
 <%= yield %>
 
 </body>
