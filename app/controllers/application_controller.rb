@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
   
+  before_filter :authenticate_user!
+  
   private
   
   def current_user
