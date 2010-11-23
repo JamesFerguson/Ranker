@@ -5,8 +5,8 @@ Feature: Login existing user
   
   Background:
     Given the following users:
-    | email               |password|
-    | my_email@domain.com |1234567890|
+    | email               | password   |
+    | my_email@domain.com | 1234567890 |
   
   Scenario: Login existing user
     Given I am on the login user page
