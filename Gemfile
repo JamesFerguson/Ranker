@@ -30,4 +30,6 @@ group :development, :test, :cucumber do
   
   gem 'factory_girl_rails'
   gem 'forgery'
+  
+  gem 'launchy'
 end

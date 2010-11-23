@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!, :except => [:new, :create, :edit, :update]
+  
   # GET /users
   # GET /users.xml
   def index
     @users = User.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
@@ -18,6 +20,36 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
+    end
+  end
+
+  # GET /users/new
+  # GET /users/new.xml
+  def new
+    @user = User.new
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @user }
+    end
+  end
+
+  # POST /users
+  # POST /users.xml
+  def create
+    @user = User.new(params[:user])
+
+    respond_to do |format|
+      if @user.save
+        # create Login
+        session[:current_user_id] = @user.id
+        
+        format.html { redirect_to(@user, :notice => 'Thanks for registering. You are logged in.') }
+        format.xml  { render :xml => @user, :status => :created, :location => @user }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
     end
   end
 
