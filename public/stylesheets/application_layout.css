@@ -1,3 +1,11 @@
-.login_status {
-  text-align: right;
+#user_login_box {
+  float: right;
+}
+
+#back_link_box {
+  float: left;
+}
+
+.clearer {
+  clear:both
 }
