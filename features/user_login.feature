@@ -5,12 +5,13 @@ Feature: Login existing user
   
   Background:
     Given the following users:
-    | email               |
-    | my_email@domain.com |
+    | email               |password|
+    | my_email@domain.com |1234567890|
   
   Scenario: Login existing user
     Given I am on the login user page
     When I fill in "Email" with "my_email@domain.com"
-    And I press "Login"
-    Then I should see "Welcome my_email@domain.com."
-     And I should see a flash message "You are logged in."
+     And I fill in "Password" with "1234567890"
+     And I press "Login"
+    Then I should see a flash notice "Logged in successfully."
+     And I should see "You are logged in as my_email@domain.com."
