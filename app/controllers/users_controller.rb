@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         # create Login
         session[:current_user_id] = @user.id
         
-        format.html { redirect_to(@user, :notice => 'Thanks for registering. You are logged in.') }
+        format.html { redirect_to @user, :notice => 'Thanks for registering. You are logged in.' }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+        format.html { redirect_to @user, :notice => 'Your details were successfully updated.' }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -79,9 +79,9 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-
+      breakpoint  
     respond_to do |format|
-      format.html { redirect_to(users_url) }
+      format.html { redirect_to users_url, :notice => 'You are logged out.' }
       format.xml  { head :ok }
     end
   end
