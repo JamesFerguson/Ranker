@@ -1,1 +1,3 @@
 A simple comparative ranking app.
+
+So far though it's just an implementation of Devise for auth and a few Cucumber tests...
