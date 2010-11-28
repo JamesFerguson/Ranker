@@ -12,9 +12,8 @@ Feature: Logout user
   
   Scenario: Logout user and ensure logged out user doesn't have access to user data
     When I follow "Logout"
-    Then show me the page
-    Then I should see a flash notice "You are logged out."
+    Then I should see a flash notice "You have logged out successfully."
      And I should not see "You are logged in as my_email@domain.com."
-    When I go to the edit user page
-    Then I should be on the login page
-     And I should see "You need to login first."
+    When I go to the edit user registration page
+    Then I should be on the login user page
+     And I should see "You need to login or register before continuing."

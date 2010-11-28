@@ -10,13 +10,13 @@ en:
       unauthenticated: 'You need to login or register before continuing.'
       unconfirmed: 'You have to confirm your account before continuing.'
       locked: 'Your account is locked.'
-      invalid: 'Invalid email or password.'
-      invalid_token: 'Invalid authentication token.'
+      invalid: 'That email or password was invalid.'
+      invalid_token: 'That authentication token was invalid.'
       timeout: 'Your session expired, please login again to continue.'
       inactive: 'Your account was not activated yet.'
     sessions:
-      signed_in: 'Logged in successfully.'
-      signed_out: 'Logged out successfully.'
+      signed_in: 'You have logged in successfully.'
+      signed_out: 'You have logged out successfully.'
     passwords:
       send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
       updated: 'Your password was changed successfully. You are now logged in.'
