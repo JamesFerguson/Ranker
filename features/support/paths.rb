@@ -14,6 +14,12 @@ module NavigationHelpers
       new_user_registration_path
     when /the login user page/
       new_user_session_path
+    when /the edit user password page/
+      edit_user_password_path
+    when /the edit user page for "([^"]*)"/
+      edit_user_path(User.find_by_email($1))
+    when /the edit user registration page/
+      edit_user_registration_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
