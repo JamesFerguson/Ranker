@@ -32,4 +32,6 @@ group :development, :test, :cucumber do
   gem 'forgery'
   
   gem 'launchy'
+  
+  gem 'awesome_print', :require => 'ap'
 end

@@ -13,5 +13,5 @@ Feature: Login existing user
     When I fill in "Email" with "my_email@domain.com"
      And I fill in "Password" with "1234567890"
      And I press "Login"
-    Then I should see a flash notice "Logged in successfully."
+    Then I should see a flash notice "You have logged in successfully."
      And I should see "You are logged in as my_email@domain.com."

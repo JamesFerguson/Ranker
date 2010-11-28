@@ -13,7 +13,7 @@
 <% if user_signed_in? -%>
     You are logged in as <%= current_user.email %>. |
     <%= link_to 'My info', edit_user_registration_path %> |
-    <%= link_to 'Sign out', destroy_user_session_path %>
+    <%= link_to 'Logout', destroy_user_session_path %>
   <% else %>
     <%= link_to "Login", new_user_session_path %> | <%= link_to "Register", new_user_registration_path %>
 <% end -%>
@@ -22,7 +22,7 @@
   <div id="admin_login_box" style="float:left">
     < %= current_admin.email % > |
     < %= link_to 'Admin section', admins_path % > |
-    < %= link_to 'Sign out', destroy_admin_session_path % >
+    < %= link_to 'Logout', destroy_admin_session_path % >
   </div>
 < % end % -->
 <div class="clearer"></div>
