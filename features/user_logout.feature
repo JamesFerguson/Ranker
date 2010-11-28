@@ -4,8 +4,7 @@ Feature: Logout user
   wants to be able to logout of the site
   
   Background:
-    Given I am on the homepage
-     And the following users:
+    Given the following users:
      | email               | password   |
      | my_email@domain.com | 1234567890 |
      And I am logged in as them
