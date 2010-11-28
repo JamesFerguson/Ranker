@@ -3,7 +3,7 @@ Ranker::Application.routes.draw do
   # first created -> highest priority.
   
   # You can have the root of your site routed with "root"
-  root :to => "users#index"
+  root :to => "users#show"
   
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
   
