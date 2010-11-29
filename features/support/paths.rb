@@ -20,6 +20,9 @@ module NavigationHelpers
       edit_user_path(User.find_by_email($1))
     when /the edit user registration page/
       edit_user_registration_path
+    when /the show user page for the user with the email "([^"]*)"/
+      user_path(User.find_by_email($1))
+      
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
