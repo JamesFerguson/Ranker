@@ -18,10 +18,14 @@ module NavigationHelpers
       edit_user_password_path
     when /the edit user page for "([^"]*)"/
       edit_user_path(User.find_by_email($1))
+    when /my edit user page/
+      edit_user_path(@user)
     when /the edit user registration page/
       edit_user_registration_path
     when /the show user page for the user with the email "([^"]*)"/
       user_path(User.find_by_email($1))
+    when /my show user page/
+      user_path(@user)
       
 
     # Add more mappings here.
