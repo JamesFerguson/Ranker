@@ -11,4 +11,4 @@ Feature: correctly route to the homepage
      | my_email@domain.com | 1234567890 |
      And I am logged in as them
      And I am on the homepage
-    Then I should be on the show user page for the user with the email "my_email@domain.com"
+    Then the page I'm on should match the show user page for the user with the email "my_email@domain.com"
