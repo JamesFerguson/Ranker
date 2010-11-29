@@ -2,12 +2,20 @@ Ranker::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
   
-  # You can have the root of your site routed with "root"
-  root :to => "users#show"
-  
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
   
   resources :users
+  
+  devise_scope :user do
+    get '/' => "devise/sessions#new", :as => :root
+    # Tried by devise for after_sign_in_path_for before absolute root_path
+    #  - can't be "users#show" because devise doesn't send the resource/user
+    get '/users' => "users#index", :as => :user_root, :via => :get
+  end
+  
+  # You can have the root of your site routed with "root"
+  # Used by devise as after_sign_out_path_for
+  # root :to => "users#new"
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

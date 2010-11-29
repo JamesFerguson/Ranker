@@ -5,7 +5,7 @@ Feature: correctly route to the homepage
   
   Scenario: Check the homepage route
     Given I am on the home page
-    Then I should be on the login user page
+    Then the page I'm on should match the login user page
     Given the following users:
      | email               | password   |
      | my_email@domain.com | 1234567890 |
