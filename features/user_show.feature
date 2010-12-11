@@ -13,15 +13,12 @@ Feature: Logout user
     Given I am on my show user page
     Then I should see my email in the "Email" field
      And I should see my login time in the "Login Time" field
-    
-    # should do:
-    # - user_current_sign_in_at_input
-    # - user_last_sign_in_at_input
-    # - confirmed? - user_confirmed_at_1i
-    # - user_confirmation_sent_at_input
-    # - created_at
-    
+     And I should see my previous login time in the "Previous Login Time" field
+     And I should see my created time in the "Created" field
+     And I should see my confirmation time in the "Confirmed" field
+     
     # could do:
+    # - user_confirmation_sent_at_input (if confirmed_at == nil ? confirmation_sent_at : confirmed_at)
     # - updated at
     # - remember me expires
     # - failed login attempts (admin)
