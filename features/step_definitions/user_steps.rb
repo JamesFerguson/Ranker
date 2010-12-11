@@ -25,3 +25,26 @@ Given /^I am logged in as them$/ do
     }
   )
 end
+
+Then /^the "([^"]*)" field should contain my (?:.*)$/ do |field|
+  page.field_labeled(field).should_not be_nil
+  attr_name = page.field_labeled(field)[:id][5..-1] # trim 'user_' off the start
+  
+  @user.should respond_to(attr_name)
+  attr_val = @user.send(attr_name)
+  
+  Then %Q{the "#{field}" field should contain "#{attr_val}"}
+end
+
+Then /^I should see my (?:.*) in the "([^"]*)" field$/ do |field|
+  page.find("th", :text => field).should_not be_nil
+  # use text of field header to find id for value element
+  selector = page.find("th", :text => field).node[:id].sub!(/_header/, '')
+  
+  attr_name = selector.sub(/_user.*/, '')
+  @user.should respond_to(attr_name)
+  
+  attr_val = @user.send(attr_name)
+  
+  Then %Q{I should see "#{attr_val}" within "##{selector}"}
+end
