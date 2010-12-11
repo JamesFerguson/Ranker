@@ -1,7 +1,10 @@
 module UsersHelper
   SHOW_ATTRIBUTES = [ 
     { :attribute_name => :email }, 
-    { :attribute_name => :current_sign_in_at, :attribute_header => "Login Time" }
+    { :attribute_name => :current_sign_in_at, :attribute_header => "Login Time" },
+    { :attribute_name => :last_sign_in_at, :attribute_header => "Previous Login Time" },
+    { :attribute_name => :created_at, :attribute_header => "Created" },
+    { :attribute_name => :confirmed_at, :attribute_header => "Confirmed" }
   ]
   
   def attributes
