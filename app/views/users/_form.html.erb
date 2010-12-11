@@ -1,21 +1,11 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for @user do |f| %>
+  <br />
+  <%= f.semantic_errors :email %>
+  <br />
+  
+  <% f.inputs do %>
+    <%= f.input :email, :input_html => { :maxlength => 255 } %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit @user.new_record? ? "Register" : "Update" %>
-  </div>
+  
+  <%= f.buttons %>
 <% end %>
