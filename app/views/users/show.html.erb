@@ -1,8 +1,5 @@
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
+<h3>Your Details</h3>
+<%= render :partial => "user" %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', root_path %>

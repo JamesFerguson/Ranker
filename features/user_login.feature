@@ -10,6 +10,9 @@ Feature: Login existing user
   
   Scenario: Login existing user
     Given I am on the login user page
+    Then I should not see "Login" within "a"
+     And I should not see "Sign up"
+     And I should not see "Sign in"
     When I fill in "Email" with "my_email@domain.com"
      And I fill in "Password" with "1234567890"
      And I press "Login"

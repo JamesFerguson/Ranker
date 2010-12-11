@@ -6,7 +6,9 @@
       <%= link_to 'My info', edit_user_registration_path %> |
       <%= link_to 'Logout', destroy_user_session_path %>
     <%- else -%>
-      <%= link_to "Login", new_user_session_path %> | <%= link_to "Register", new_user_registration_path %>
+      <%= (@_request.fullpath == new_user_session_path ? "Login" : link_to("Login", new_user_session_path)) %>
+        | 
+       <%= (@_request.fullpath == new_user_registration_path ? "Register" : link_to("Register", new_user_registration_path)) %>
   <%- end -%>
   </div>
   <!-- %- if admin_signed_in? -% >

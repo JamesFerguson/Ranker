@@ -15,4 +15,4 @@ Feature: Logout user
      And I should not see "You are logged in as my_email@domain.com."
     When I go to the edit user registration page
     Then I should be on the login user page
-     And I should see "You need to login or register before continuing."
+     And I should see a flash alert "You need to login or register before continuing."

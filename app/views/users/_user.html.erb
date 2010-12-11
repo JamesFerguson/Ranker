@@ -1,0 +1,12 @@
+<%= content_tag_for :table, @user do %>
+  <% attributes.each do |row| %>
+    <tr>
+      <%= content_tag_for :th, @user, row[:attribute_name].to_s + "_header" do %>
+        <%= row[:attribute_header] || row[:attribute_name].to_s.titlecase %>:
+      <% end %>
+      <%= content_tag_for :td, @user, row[:attribute_name] do %>
+        <%=raw pretty_attribute(row[:attribute_name]) %>
+      <% end %>
+    </tr>
+  <% end %>
+<% end %>
