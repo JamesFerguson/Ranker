@@ -10,7 +10,7 @@ module NavigationHelpers
     
     when /the home\s?page/
       '/'
-    when /the new user page/
+    when /the new user registration page/
       new_user_registration_path
     when /the login user page/
       new_user_session_path

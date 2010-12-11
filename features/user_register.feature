@@ -4,7 +4,7 @@ Feature: Create users
   wants to be able to create an account
   
   Scenario: Register new user
-    Given I am on the new user page
+    Given I am on the new user registration page
     When I fill in "Email" with "my_email@domain.com"
      And I fill in "Password" with "1234567890"
      And I fill in "Password confirmation" with "1234567890"
