@@ -11,5 +11,6 @@ Feature: Create users
      And I press "Register"
     Then I should see a flash notice "You have registered successfully. You will receive an email with instructions about how to confirm your account in a few minutes."
      And I should see "You are logged in as my_email@domain.com."
-     And I should be on the X page
-     And I should receive an email ...
+     And I should be on the show user page for the user with the email "my_email@domain.com"
+     And I should receive an email
+     And the email should have the subject "Confirm your registration"
