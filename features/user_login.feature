@@ -18,3 +18,4 @@ Feature: Login existing user
      And I press "Login"
     Then I should see a flash notice "You have logged in successfully."
      And I should see "You are logged in as my_email@domain.com."
+     And I should be on my show user page
