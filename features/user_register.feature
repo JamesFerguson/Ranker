@@ -9,7 +9,7 @@ Feature: Create users
      And I fill in "Password" with "1234567890"
      And I fill in "Password confirmation" with "1234567890"
      And I press "Register"
-    Then I should see a flash notice "You have registered successfully. If enabled, a confirmation was sent to your e-mail." fix this message
+    Then I should see a flash notice "You have registered successfully. You will receive an email with instructions about how to confirm your account in a few minutes."
      And I should see "You are logged in as my_email@domain.com."
      And I should be on the X page
      And I should receive an email ...
