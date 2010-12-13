@@ -10,21 +10,21 @@ module NavigationHelpers
     
     when /the home\s?page/
       '/'
-    when /the new user page/
+    when /the new user registration page/
       new_user_registration_path
     when /the login user page/
       new_user_session_path
     when /the edit user password page/
       edit_user_password_path
-    when /the edit user page for "([^"]*)"/
-      edit_user_path(User.find_by_email($1))
-    when /my edit user page/
+    when /the (edit user|user edit) page for "(?<email>[^"]*)"/
+      edit_user_path(User.find_by_email(Regexp.last_match[:email]))
+    when /my (edit user|user edit) page/
       edit_user_path(@user)
-    when /the edit user registration page/
+    when /the (edit user|user edit) registration page/
       edit_user_registration_path
-    when /the show user page for the user with the email "([^"]*)"/
-      user_path(User.find_by_email($1))
-    when /my show user page/
+    when /the (show user|user show) page for the user with the email "(?<email>[^"]*)"/
+      user_path(User.find_by_email(Regexp.last_match[:email]))
+    when /my (show user|user show) page/
       user_path(@user)
       
 

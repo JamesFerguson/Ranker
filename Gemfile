@@ -16,6 +16,9 @@ gem 'devise'
 # Form/View helpers
 gem 'formtastic'
 
+# Workaround Rack regex warnings - see config/initializers/rack_warning_fix.rb
+gem 'escape_utils'
+
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
@@ -34,4 +37,6 @@ group :development, :test, :cucumber do
   gem 'launchy'
   
   gem 'awesome_print', :require => 'ap'
+  
+  gem 'email_spec'
 end

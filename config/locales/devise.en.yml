@@ -24,7 +24,7 @@ en:
       send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
       confirmed: 'Your account was successfully confirmed. You are now logged in.'
     registrations:
-      signed_up: 'You have registered successfully. If enabled, a confirmation was sent to your e-mail.'
+      signed_up: 'You have registered successfully. You will receive an email with instructions about how to confirm your account in a few minutes.'
       updated: 'You updated your account successfully.'
       destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
     unlocks:
@@ -32,7 +32,7 @@ en:
       unlocked: 'Your account was successfully unlocked. You are now signed in.'
     mailer:
       confirmation_instructions:
-        subject: 'Confirmation instructions'
+        subject: 'Confirm your registration'
       reset_password_instructions:
         subject: 'Reset password instructions'
       unlock_instructions:
