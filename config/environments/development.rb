@@ -13,10 +13,31 @@ Ranker::Application.configure do
   config.consider_all_requests_local       = true
   config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
-
+  
+  # Mail
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.raise_delivery_errors = true
+  ActionMailer::Base.delivery_method = :sendmail
+  ActionMailer::Base.sendmail_settings = {
+  :location       => '/usr/sbin/sendmail',
+  :arguments      => '-i -t'
+  }
+  
+  # ActionMailer::Base.delivery_method = :smtp
+  # ActionMailer::Base.perform_deliveries = true  
+  # ActionMailer::Base.raise_delivery_errors = true
+  # ActionMailer::Base.default :charset => "utf-8" 
+  # 
+  # ActionMailer::Base.smtp_settings = {
+  #   :tls                => true, 
+  #   :address            => "smtp.sendgrid.net", 
+  #   :port               => "25",
+  #   :domain             => "ranker.heroku.com",
+  #   :authentication     => :plain,
+  #   :user_name          => "james.ferguson7@gmail.com",
+  #   :password           => "B^c7N8@&V%Qtv*642C9Q" 
+  # }
+  
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
