@@ -17,14 +17,20 @@ module NavigationHelpers
     when /the edit user password page/
       edit_user_password_path
     when /the (edit user|user edit) page for "(?<email>[^"]*)"/
+      Regexp.last_match[:email].should_not be_nil
+      User.find_by_email(Regexp.last_match[:email]).should_not be_nil
       edit_user_path(User.find_by_email(Regexp.last_match[:email]))
     when /my (edit user|user edit) page/
+      @user.should_not be_nil
       edit_user_path(@user)
     when /the (edit user|user edit) registration page/
       edit_user_registration_path
     when /the (show user|user show) page for the user with the email "(?<email>[^"]*)"/
+      Regexp.last_match[:email].should_not be_nil
+      User.find_by_email(Regexp.last_match[:email]).should_not be_nil
       user_path(User.find_by_email(Regexp.last_match[:email]))
     when /my (show user|user show) page/
+      @user.should_not be_nil
       user_path(@user)
       
 
