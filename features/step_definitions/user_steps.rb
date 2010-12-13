@@ -48,3 +48,10 @@ Then /^I should see my (?:.*) in the "([^"]*)" field$/ do |field|
   
   Then %Q{I should see "#{attr_val}" within "##{selector}"}
 end
+
+# Fudge for registration to make later steps more concise
+Then /^I am the user with email "([^"]*)"$/ do |email|
+  email.should_not be_empty
+  User.find_by_email(email).should_not be_nil
+  @user = User.find_by_email(email)
+end
