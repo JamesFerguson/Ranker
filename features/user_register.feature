@@ -17,3 +17,7 @@ Feature: Create users
     When I open the email 
     Then I should see "Confirm your registration" in the email subject
      And I should see "confirm your account" in the email body
+    When I follow "confirm your account" in the email
+    Then I should be on my user show page
+     And I should see a flash notice "Your account was successfully confirmed"
+     And I should see "less than a minute ago" within ".confirmed_at_user"
