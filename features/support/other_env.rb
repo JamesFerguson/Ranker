@@ -1,6 +1,9 @@
 # env.rb says not to edit it, so additional bits go here.
-# require 'email_spec'
-# require 'email_spec/cucumber'
+
+# use email spec
+require 'email_spec'
+require 'email_spec/cucumber'
+
 # require 'facebooker/rails/cucumber' if ARGV.include?("facebook")
 
 # Get support helpers

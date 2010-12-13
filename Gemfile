@@ -37,4 +37,6 @@ group :development, :test, :cucumber do
   gem 'launchy'
   
   gem 'awesome_print', :require => 'ap'
+  
+  gem 'email_spec'
 end
