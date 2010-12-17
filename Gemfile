@@ -25,9 +25,11 @@ gem 'escape_utils'
 group :development, :test, :cucumber do
   gem 'cucumber-rails'
   gem 'capybara'
+  gem 'fuubar-cucumber'
   
   gem 'shoulda'
   gem 'rspec-rails', '~> 2.1.0'
+  gem 'email_spec'
   
   gem 'ruby-debug19'
   
@@ -38,5 +40,4 @@ group :development, :test, :cucumber do
   
   gem 'awesome_print', :require => 'ap'
   
-  gem 'email_spec'
 end
