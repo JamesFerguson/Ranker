@@ -32,6 +32,8 @@ module NavigationHelpers
     when /my (show user|user show) page/
       @user.should_not be_nil
       user_path(@user)
+    when /the (index users|users index) page/
+      users_path
       
 
     # Add more mappings here.

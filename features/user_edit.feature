@@ -21,3 +21,7 @@ Feature: Edit user
   Scenario: Edit user data
     When I follow "My info"
     Then I should be on my edit user page
+    When I follow "Back"
+    Then the page I'm on should match my show user page
+    When I am on the index users page
+    Then I should see "my_email@domain.com"
