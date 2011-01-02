@@ -9,7 +9,7 @@ en:
     failure:
       unauthenticated: 'You need to login or register before continuing.'
       unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'Your account is locked.'
+      locked: 'Your account is locked due to too many invalid logins. You''ve been sent an email with instructions for unlocking it, otherwise it will be unlocked automatically after one hour.'
       invalid: 'That email or password was invalid.'
       invalid_token: 'That authentication token was invalid.'
       timeout: 'Your session expired, please login again to continue.'
