@@ -17,3 +17,7 @@ Feature: Edit user
     Then I should be on my show user page
      And I should see a flash notice "Your details were successfully updated."
      And I should see "my_other_email@domain.com" within ".main_section"
+
+  Scenario: Edit user data
+    When I follow "My info"
+    Then I should be on my edit user page
