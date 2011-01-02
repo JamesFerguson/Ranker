@@ -12,7 +12,8 @@ Feature: Lock user after failed login attempts
     Given I am on the login user page
       And a clear email queue
      When I unsuccessfully login 11 times
-     Then my account should be locked
+     Then I should see "Your account is locked due to too many invalid logins. You've been sent an email with instructions for unlocking it, otherwise it will be unlocked automatically after one hour."
+      And my account should be locked
       And I should be on the login user page
       And I should receive an email
      When I open the email 

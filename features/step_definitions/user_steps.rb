@@ -26,8 +26,6 @@ When /^I unsuccessfully login (\d+) times$/ do |number|
     login_with :email => @user.email, :password => "cheese"
     unless num == number
       Then %Q{I should see "That email or password was invalid"}
-    else
-      Then %Q{I should see "Your account is locked"}
     end
   end
 end
