@@ -3,7 +3,7 @@
   <div id="user_login_box">
   <%- if user_signed_in? -%>
       You are logged in as <%= current_user.email %>. |
-      <%= link_to 'My info', edit_user_registration_path %> |
+      <%= link_to 'My info', edit_user_path(@user) %> |
       <%= link_to 'Logout', destroy_user_session_path %>
     <%- else -%>
       <%= (@_request.fullpath == new_user_session_path ? "Login" : link_to("Login", new_user_session_path)) %>
