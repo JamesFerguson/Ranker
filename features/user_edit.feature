@@ -25,3 +25,23 @@ Feature: Edit user
     Then the page I'm on should match my show user page
     When I am on the index users page
     Then I should see "my_email@domain.com"
+    
+  Scenario: Edit password
+    When I follow "My info"
+    Then I should be on my edit user page
+    When I follow "Change password"
+    Then I should be on the edit user registration page
+    When I fill in "Password" with "0987654321"
+     And I fill in "Password confirmation" with "0987654321"
+     And I fill in "Current password" with "1234567890"
+     And I press "Update"
+    Then I should be on my show user page
+     And I should see "You updated your account successfully."
+    When I follow "Logout"
+    Then I should be on the user login page
+    When I fill in "Email" with "my_email@domain.com"
+     And I fill in "Password" with "0987654321"
+     And I press "Login"
+    Then I should see a flash notice "You have logged in successfully."
+     And I should see "You are logged in as my_email@domain.com."
+     And I should be on my show user page

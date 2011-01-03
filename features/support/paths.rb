@@ -12,7 +12,7 @@ module NavigationHelpers
       '/'
     when /the new user registration page/
       new_user_registration_path
-    when /the login user page/
+    when /the (login user|user login) page/
       new_user_session_path
     when /the edit user password page/
       edit_user_password_path
