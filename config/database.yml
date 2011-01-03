@@ -6,8 +6,6 @@ login: &login
   password: 9Q&8nc4dBjJH*22Cae9@Np%96
   min_messages: warning
   
-# SQLite version 3.x
-#   gem install sqlite3-ruby (not necessary on OS X Leopard)
 development:
   database: ranker_development
   <<: *login
