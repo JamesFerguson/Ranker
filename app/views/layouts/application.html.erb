@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%=Rails.env[0].upcase + ':' unless RAILS_ENV == "production" %>Ranker</title>
+  <title><%=Rails.env[0].upcase + ':' unless Rails.env == "production" %>Ranker</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
