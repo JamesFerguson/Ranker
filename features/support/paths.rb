@@ -34,6 +34,8 @@ module NavigationHelpers
       user_path(@user)
     when /the (index users|users index) page/
       users_path
+    when / the new (user unlock|unlock user) page/
+      new_user_unlock_path
       
 
     # Add more mappings here.
