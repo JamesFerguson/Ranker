@@ -23,36 +23,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/new
-  # GET /users/new.xml
-  def new
-    @user = User.new
-    
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @user }
-    end
-  end
-
-  # POST /users
-  # POST /users.xml
-  def create
-    @user = User.new(params[:user])
-
-    respond_to do |format|
-      if @user.save
-        # create Login
-        session[:current_user_id] = @user.id
-        
-        format.html { redirect_to @user, :notice => 'Thanks for registering. You are logged in.' }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
@@ -71,18 +41,6 @@ class UsersController < ApplicationController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /users/1
-  # DELETE /users/1.xml
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-      breakpoint  
-    respond_to do |format|
-      format.html { redirect_to users_url, :notice => 'You are logged out.' }
-      format.xml  { head :ok }
     end
   end
 end

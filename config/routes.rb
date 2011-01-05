@@ -7,7 +7,7 @@ Ranker::Application.routes.draw do
   
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
   
-  resources :users
+  resources :users, :except => [:new, :create, :destroy]
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
