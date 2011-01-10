@@ -1,4 +1,28 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+
+# figure out where we are being loaded from
+if $LOADED_FEATURES.grep(/spec\/spec_helper\.rb/).any?
+  begin
+    raise "foo"
+  rescue => e
+    puts <<-MSG
+  ===================================================
+  It looks like spec_helper.rb has been loaded
+  multiple times. Normalize the require to:
+
+    require "spec/spec_helper"
+
+  Things like File.join and File.expand_path will
+  cause it to be loaded multiple times.
+
+  Loaded this time from:
+
+    #{e.backtrace.join("\n    ")}
+  ===================================================
+    MSG
+  end
+end
+
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
@@ -7,7 +31,6 @@ require 'rspec/rails'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-require "devise/test_helpers" 
 
 RSpec.configure do |config|
   # == Mock Framework
@@ -20,17 +43,10 @@ RSpec.configure do |config|
   config.mock_with :rspec
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-  
-  # For Devise
-  config.include Devise::TestHelpers, :type => :controller
-  
-  # Email spec
-  config.include EmailSpec::Helpers
-  config.include EmailSpec::Matchers
 end
