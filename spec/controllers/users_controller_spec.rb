@@ -15,9 +15,12 @@ describe UsersController do
   describe "GET index" do
     it "assigns all users as @users" do
       User.stub(:all) { [mock_user] }
+      
       get :index
-      response.should be_success
-      assigns(:users).should eq([mock_user])
+      
+      should respond_with(:success)
+      should assign_to(:users).with([mock_user])
+      should render_template(:index)
     end
   end
 
@@ -25,17 +28,25 @@ describe UsersController do
     it "assigns the requested user as @user" do
       User.should_receive(:find).with(:first, :conditions => {:id => user.id}).and_return(user)
       User.should_receive(:find).with("37").and_return(mock_user)
+      
       get :show, :id => "37"
-      assigns(:user).should be(mock_user)
+      
+      should respond_with(:success)
+      should assign_to(:user).with(mock_user)
+      should render_template(:show)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested user as @user" do
       User.should_receive(:find).with(:first, :conditions => {:id => user.id}).and_return(user)
-      User.stub(:find).with("37") { mock_user }
+      User.stub(:find).with("37").and_return(mock_user)
+      
       get :edit, :id => "37"
-      assigns(:user).should be(mock_user)
+      
+      should respond_with(:success)
+      should assign_to(:user).with(mock_user)
+      should render_template(:edit)
     end
   end
 
@@ -44,20 +55,14 @@ describe UsersController do
     describe "with valid params" do
       it "updates the requested user" do
         User.should_receive(:find).with(:first, :conditions => {:id => user.id}).and_return(user)
-        User.should_receive(:find).with("37") { mock_user }
-        mock_user.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :user => {'these' => 'params'}
-      end
-
-      it "assigns the requested user as @user" do
-        User.stub(:find) { mock_user(:update_attributes => true) }
-        put :update, :id => "1"
-        assigns(:user).should be(mock_user)
-      end
-
-      it "redirects to the user" do
-        User.stub(:find) { mock_user(:update_attributes => true) }
-        put :update, :id => "1"
+        User.should_receive(:find).with("37").and_return(mock_user)
+        user_attrs = Factory.attributes_for(:user).with_indifferent_access
+        mock_user.should_receive(:update_attributes).with(user_attrs).and_return(true)
+        
+        put :update, :id => "37", :user => user_attrs
+        
+        should assign_to(:user).with(mock_user)
+        should set_the_flash.to("Your details were successfully updated.")
         response.should redirect_to(user_url(mock_user))
       end
     end
@@ -65,14 +70,11 @@ describe UsersController do
     describe "with invalid params" do
       it "assigns the user as @user" do
         User.stub(:find) { mock_user(:update_attributes => false) }
+        
         put :update, :id => "1"
-        assigns(:user).should be(mock_user)
-      end
-
-      it "re-renders the 'edit' template" do
-        User.stub(:find) { mock_user(:update_attributes => false) }
-        put :update, :id => "1"
-        response.should render_template("edit")
+        
+        should assign_to(:user).with(mock_user)
+        should render_template(:edit)
       end
     end
 
