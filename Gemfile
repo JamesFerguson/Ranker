@@ -24,7 +24,7 @@ gem 'escape_utils'
 # and rake tasks are available in development mode:
 group :development, :test, :cucumber do
   gem 'cucumber-rails'
-  gem 'capybara'
+  gem 'capybara', '~> 0.3.9'
   gem 'fuubar-cucumber'
   
   gem 'shoulda'
