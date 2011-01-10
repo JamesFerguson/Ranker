@@ -3,22 +3,28 @@ require 'spec_helper'
 describe UsersController do
 
   def mock_user(stubs={})
-    (@mock_user ||= mock_model(User).as_null_object).tap do |user|
-      user.stub(stubs) unless stubs.empty?
-    end
+    @mock_user ||= mock_model(User, stubs).as_null_object
+  end
+
+  let(:user) { Factory(:user) }
+
+  before(:each) do
+    sign_in user
   end
 
   describe "GET index" do
     it "assigns all users as @users" do
       User.stub(:all) { [mock_user] }
       get :index
+      response.should be_success
       assigns(:users).should eq([mock_user])
     end
   end
 
   describe "GET show" do
     it "assigns the requested user as @user" do
-      User.stub(:find).with("37") { mock_user }
+      User.should_receive(:find).with(:first, :conditions => {:id => user.id}).and_return(user)
+      User.should_receive(:find).with("37").and_return(mock_user)
       get :show, :id => "37"
       assigns(:user).should be(mock_user)
     end
@@ -26,6 +32,7 @@ describe UsersController do
 
   describe "GET edit" do
     it "assigns the requested user as @user" do
+      User.should_receive(:find).with(:first, :conditions => {:id => user.id}).and_return(user)
       User.stub(:find).with("37") { mock_user }
       get :edit, :id => "37"
       assigns(:user).should be(mock_user)
@@ -36,6 +43,7 @@ describe UsersController do
 
     describe "with valid params" do
       it "updates the requested user" do
+        User.should_receive(:find).with(:first, :conditions => {:id => user.id}).and_return(user)
         User.should_receive(:find).with("37") { mock_user }
         mock_user.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, :id => "37", :user => {'these' => 'params'}
