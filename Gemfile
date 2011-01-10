@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.0.0'
+gem 'rails', '~> 3.0'
 
 gem 'pg'
 
@@ -28,7 +28,7 @@ group :development, :test, :cucumber do
   gem 'fuubar-cucumber'
   
   gem 'shoulda'
-  gem 'rspec-rails', '~> 2.1.0'
+  gem 'rspec-rails', '~> 2.1'
   gem 'email_spec'
   
   gem 'ruby-debug19'
@@ -38,6 +38,6 @@ group :development, :test, :cucumber do
   
   gem 'launchy'
   
-  gem 'awesome_print', :require => 'ap'
-  
+  gem 'awesome_print'
+  gem 'wirble'
 end
