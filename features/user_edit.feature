@@ -45,3 +45,9 @@ Feature: Edit user
     Then I should see a flash notice "You have logged in successfully."
      And I should see "You are logged in as my_email@domain.com."
      And I should be on my show user page
+
+  Scenario: Cancel account/unsubscribe
+    When I follow "Edit"
+     And I follow "Cancel my account"
+    Then I should be on the login user page
+     And I should see a flash notice "Bye! Your account was successfully cancelled. We hope to see you again soon."
