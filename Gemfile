@@ -40,4 +40,6 @@ group :development, :test, :cucumber do
   
   gem 'awesome_print'
   gem 'wirble'
+  gem 'irb_hacks'
+  gem 'ori'
 end
