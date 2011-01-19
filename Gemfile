@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.0.0'
+gem 'rails', '~> 3.0'
 
 gem 'pg'
 
@@ -24,11 +24,11 @@ gem 'escape_utils'
 # and rake tasks are available in development mode:
 group :development, :test, :cucumber do
   gem 'cucumber-rails'
-  gem 'capybara'
+  gem 'capybara', '~> 0.3.9'
   gem 'fuubar-cucumber'
   
   gem 'shoulda'
-  gem 'rspec-rails', '~> 2.1.0'
+  gem 'rspec-rails', '~> 2.1'
   gem 'email_spec'
   
   gem 'ruby-debug19'
@@ -38,6 +38,8 @@ group :development, :test, :cucumber do
   
   gem 'launchy'
   
-  gem 'awesome_print', :require => 'ap'
-  
+  gem 'awesome_print'
+  gem 'wirble'
+  gem 'irb_hacks'
+  gem 'ori'
 end
